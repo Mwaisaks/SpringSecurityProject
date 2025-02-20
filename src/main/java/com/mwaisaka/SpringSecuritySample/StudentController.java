@@ -31,8 +31,22 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public Student addStudent(@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student){  //@RequestBody converts JSOn input into a student object
         students.add(student);
         return student;
     }
 }
+
+/*
+
+private List<Student> students;
+
+- Declares a List (interface) that holds Student objects.
+- We use List<Student> instead of ArrayList<Student> to follow the best practice of coding to an interface rather than an implementation.
+
+new ArrayList<>(List.of(...))
+- List.of(...) creates an immutable list with predefined values.
+- Wrapping it inside new ArrayList<>() ensures mutability, so you can add or remove students later.
+
+💡 If you directly used List.of(), you wouldn't be able to modify the list (students.add(student); would fail).
+ */
