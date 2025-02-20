@@ -8,6 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -35,5 +39,25 @@ public class SecurityConfig {
         This method is a representation of the lambda verion of the first expression, same thing for the rst of the methods
         */
         //return http.build(); //replaced by use of builder pattern
+    }
+
+    @Bean
+    public UserDetailsService userDetailsService(){
+
+        UserDetails user1 = User
+                .withDefaultPasswordEncoder() //don't push it to production only for hardcoded values
+                .username("kiran")
+                .password("k@123")
+                .roles("USER")
+                .build();
+
+        UserDetails user2 = User
+                .withDefaultPasswordEncoder() //don't push it to production only for hardcoded values
+                .username("harsh")
+                .password("h@123")
+                .roles("ADMIN")
+                .build();
+
+        return new InMemoryUserDetailsManager(user1, user2);
     }
 }
