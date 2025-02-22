@@ -1,4 +1,4 @@
-package com.mwaisaka.SpringSecuritySample;
+package com.mwaisaka.SpringSecuritySample.model;
 
 public class Student {
 

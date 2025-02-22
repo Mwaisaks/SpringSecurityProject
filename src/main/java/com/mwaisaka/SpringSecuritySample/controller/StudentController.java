@@ -1,5 +1,6 @@
-package com.mwaisaka.SpringSecuritySample;
+package com.mwaisaka.SpringSecuritySample.controller;
 
+import com.mwaisaka.SpringSecuritySample.model.Student;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.GetMapping;

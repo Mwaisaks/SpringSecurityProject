@@ -1,4 +1,4 @@
-package com.mwaisaka.SpringSecuritySample;
+package com.mwaisaka.SpringSecuritySample.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.GetMapping;
